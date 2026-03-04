@@ -17,6 +17,12 @@
             --text: #2a2a27;
             --text-soft: #3f433f;
             --text-muted: #5d635d;
+            --text-on-dark: #faf7f2;
+            --text-on-dark-soft: rgba(250, 247, 242, 0.9);
+            --surface-hero: #2d4a3e;
+            --surface-contact: #2d4a3e;
+            --surface-footer: #1e3329;
+            --on-dark-border: rgba(250, 247, 242, 0.25);
             --border: #ddd8cc;
             --white: #ffffff;
             --shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
@@ -33,6 +39,12 @@
             --text: #edf2ef;
             --text-soft: #d0ddd7;
             --text-muted: #b3c4bd;
+            --text-on-dark: #edf2ef;
+            --text-on-dark-soft: rgba(237, 242, 239, 0.92);
+            --surface-hero: #0f1513;
+            --surface-contact: #121816;
+            --surface-footer: #0e1412;
+            --on-dark-border: rgba(237, 242, 239, 0.3);
             --border: #31423b;
             --white: #1a2220;
             --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
@@ -104,6 +116,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-1px);
+        }
+
+        .theme-toggle:focus-visible,
+        .nav-links a:focus-visible,
+        .hero-cta:focus-visible,
+        .contact-btn:focus-visible {
+            outline: 3px solid var(--green-soft);
+            outline-offset: 3px;
         }
 
         .nav-links {
@@ -122,15 +147,11 @@
         }
 
         .hero {
-            background: #2d4a3e;
+            background: var(--surface-hero);
             padding: 64px 28px 56px;
             position: relative;
             overflow: hidden;
             text-align: center;
-        }
-
-        html.dark-mode .hero {
-            background: #0f1513;
         }
 
         .hero::before {
@@ -162,7 +183,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(42px, 7vw, 72px);
             font-weight: 300;
-            color: #faf7f2;
+            color: var(--text-on-dark);
             line-height: 1.05;
             margin-bottom: 8px;
             letter-spacing: 0.02em;
@@ -184,7 +205,7 @@
         .hero-desc {
             font-size: 16px;
             line-height: 1.8;
-            color: rgba(250, 247, 242, 0.9);
+            color: var(--text-on-dark-soft);
             max-width: 520px;
             margin: 0 auto 28px;
             font-weight: 400;
@@ -192,8 +213,8 @@
 
         .hero-cta {
             display: inline-block;
-            background: #5a8a74;
-            color: #faf7f2;
+            background: var(--green-soft);
+            color: var(--text-on-dark);
             font-size: 14px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -381,12 +402,8 @@
         }
 
         #contacto {
-            background: #2d4a3e;
+            background: var(--surface-contact);
             text-align: center;
-        }
-
-        html.dark-mode #contacto {
-            background: #121816;
         }
 
         #contacto .section-label {
@@ -395,7 +412,7 @@
         }
 
         #contacto .section-title {
-            color: #faf7f2;
+            color: var(--text-on-dark);
         }
 
         #contacto .divider-line {
@@ -404,7 +421,7 @@
 
         .contacto-desc {
             font-size: 16px;
-            color: rgba(250, 247, 242, 0.9);
+            color: var(--text-on-dark-soft);
             line-height: 1.7;
             font-weight: 400;
             margin: 0 auto 28px;
@@ -437,42 +454,48 @@
         }
 
         .contact-btn.whatsapp {
-            background: #5a8a74;
-            color: #faf7f2;
+            background: var(--green-soft);
+            color: var(--text-on-dark);
         }
 
         .contact-btn.instagram {
             background: transparent;
-            color: #faf7f2;
-            border: 1px solid rgba(250, 247, 242, 0.25);
+            color: var(--text-on-dark);
+            border: 1px solid var(--on-dark-border);
             text-transform: none;
             letter-spacing: 0.03em;
         }
 
         .contact-btn.email {
             background: transparent;
-            color: rgba(250, 247, 242, 0.85);
-            border: 1px solid rgba(250, 247, 242, 0.35);
+            color: var(--text-on-dark-soft);
+            border: 1px solid var(--on-dark-border);
             font-size: 14px;
             text-transform: none;
             letter-spacing: 0.03em;
         }
 
         .footer {
-            background: #1e3329;
+            background: var(--surface-footer);
             padding: 20px 28px;
             text-align: center;
         }
 
-        html.dark-mode .footer {
-            background: #0e1412;
-        }
-
         .footer-text {
             font-size: 13px;
-            color: rgba(250, 247, 242, 0.72);
+            color: var(--text-on-dark-soft);
             letter-spacing: 0.06em;
             line-height: 1.6;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         @media (max-width: 700px) {
@@ -726,15 +749,33 @@
     <script>
         const htmlElement = document.documentElement;
         const themeToggle = document.getElementById('themeToggle');
+        const THEME_STORAGE_KEY = 'theme';
+
+        function updateThemeToggleA11y(isDark) {
+            const actionLabel = isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+            themeToggle.setAttribute('aria-label', actionLabel);
+            themeToggle.setAttribute('title', actionLabel);
+        }
 
         function setTheme(isDark) {
             htmlElement.classList.toggle('dark-mode', isDark);
             themeToggle.textContent = isDark ? '🌙' : '☀️';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeToggleA11y(isDark);
+
+            try {
+                localStorage.setItem(THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
+            } catch {
+            }
         }
 
         function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
+            let savedTheme = null;
+
+            try {
+                savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+            } catch {
+            }
+
             if (savedTheme === 'dark') {
                 setTheme(true);
                 return;
