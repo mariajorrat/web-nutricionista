@@ -70,7 +70,6 @@ Build a landing page that conveys professionalism and trust, converting Instagra
 - **No images** → design works purely through typography and color
 - **Warm, human tone** → first-person copy to build empathy
 - **WhatsApp as primary CTA** → minimum friction for contact
-- **ES/EN toggle** → to serve both Spanish-speaking and international patients
 
 ### Technical solution
 A single HTML file with embedded CSS and JS. No frameworks, no external dependencies (except Google Fonts). Deployed on GitHub Pages for free.
