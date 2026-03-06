@@ -23,7 +23,6 @@ Crear una landing page que transmita profesionalismo y confianza, y convierta vi
 - **Sin imágenes** → el diseño funciona puramente con tipografía y color
 - **Tono cercano y humano** → textos en primera persona para generar empatía
 - **WhatsApp como CTA principal** → menor fricción posible para el contacto
-- **Toggle ES/EN** → para alcanzar pacientes hispanohablantes e internacionales
 
 ### Solución técnica
 Un único archivo HTML con CSS y JS embebidos. Sin frameworks, sin dependencias externas (excepto Google Fonts). Desplegado en GitHub Pages de forma gratuita.
