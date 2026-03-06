@@ -34,9 +34,8 @@ Un único archivo HTML con CSS y JS embebidos. Sin frameworks, sin dependencias 
 ### Resultados
 | Métrica | Resultado |
 |---|---|
-| Tiempo de entrega | 10 días |
+| Tiempo de entrega | 3 días |
 | Archivos | 1 HTML (sin dependencias) |
-| Idiomas | ES / EN |
 | Costo de hosting | $0 / mes |
 
 ### Aprendizajes
@@ -46,7 +45,7 @@ Un único archivo HTML con CSS y JS embebidos. Sin frameworks, sin dependencias 
 - La simplicidad técnica es una decisión de diseño, no una limitación
 
 ### Links
-- 🌐 [Ver sitio](https://mariajorrat.github.io/web-nutricionista/)
+- 🌐 [Ver sitio](https://mariajorrat.github.io/LuciaFernandez-nutricionista/)
 - 🎨 [Ver mockup](https://mariajorrat.github.io/web-nutricionista/mockup.html)
 - 👩‍💻 [Portfolio de la diseñadora](https://mariajorrat.pages.dev)
 
@@ -82,9 +81,8 @@ A single HTML file with embedded CSS and JS. No frameworks, no external dependen
 ### Results
 | Metric | Result |
 |---|---|
-| Delivery time | 10 days |
+| Delivery time | 3 days |
 | Files | 1 HTML (no dependencies) |
-| Languages | ES / EN |
 | Hosting cost | $0 / month |
 
 ### Learnings
