@@ -33,7 +33,7 @@ Un único archivo HTML con CSS y JS embebidos. Sin frameworks, sin dependencias 
 ### Resultados
 | Métrica | Resultado |
 |---|---|
-| Tiempo de entrega | 10 días |
+| Tiempo de entrega | 3 días |
 | Archivos | 1 HTML (sin dependencias) |
 | Idiomas | ES / EN |
 | Costo de hosting | $0 / mes |
@@ -80,7 +80,7 @@ A single HTML file with embedded CSS and JS. No frameworks, no external dependen
 ### Results
 | Metric | Result |
 |---|---|
-| Delivery time | 10 days |
+| Delivery time | 3 days |
 | Files | 1 HTML (no dependencies) |
 | Languages | ES / EN |
 | Hosting cost | $0 / month |
